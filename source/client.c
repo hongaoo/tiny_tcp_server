@@ -42,8 +42,10 @@ int main(int argc,char *argv[])
 	while(1)
 	{
 		fgets(sendbuf,sizeof(sendbuf),stdin);
-		send(cfd,sendbuf,sizeof(sendbuf),0);
+		write(cfd,sendbuf,strlen(sendbuf));
 		printf("client send buf:%s\n",sendbuf);
+		read(cfd,recvbuf,sizeof(recvbuf));
+		printf("client recv buf:%s\n",recvbuf);
 	}
 }
 
